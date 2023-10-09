@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--  First, link the bootstrap framework -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="/src/main/resources/static/css/view.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+    <div class="wrapper wrapper--w790">
+        <div class="card card-5">
+            <div class="card-heading">
+                <h2 class="title">Airline Schedule Overview</h2>
+            </div>
+
+            <div class="card-body">
+                <form method="POST">
+                    <div class="form-row m-b-55">
+                        <div class="name">Airline Info</div>
+                        <div class="value">
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <p class="input--style-5">Delta</p>
+                                </div>
+                                <div class="col-2">
+                                    <p class="input--style-5">31033</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Destination</div>
+                        <div class="value">
+                            <p class="input--style-5">Los Angeles</p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Time</div>
+                        <div class="value">
+                            <p class="input--style-5">08:07</p>
+                        </div>
+                    </div>
+                    <div class="form-row m-b-55">
+                        <div class="name">Gate</div>
+                        <div class="value">
+                            <div class="row row-space">
+                                <div class="col-2">
+                                    <p class="input--style-5">A</p>
+                                </div>
+                                <div class="col-2">
+                                    <p class="input--style-5">02</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">New Time</div>
+                        <div class="value">
+                            <p class="input--style-5">08:10</p>
+                        </div>
+                    </div>
+                    <div class="form-row p-t-20">
+                        <label class="label label--block">Remarks</label>
+                        <div class="p-t-15">
+                            <label class="radio-container m-r-45">Scheduled
+                                <input type="radio" name="exist" disabled>
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio-container m-r-45">Boarding
+                                <input type="radio" name="exist" disabled>
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio-container m-r-45">Delayed
+                                <input type="radio" checked="checked" name="exist">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio-container m-r-45">Cancelled
+                                <input type="radio" name="exist" disabled>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="btn-wrapper">
+                        <button class="btn btn--radius-2 btn--red" type="button" onclick="location.href='edit.html'">EDIT</button>
+                        <button class="btn btn--radius-2 btn--red" id="liveToastBtn" type="button" >DELETE</button>
+                    </div>
+                    <!-- Toast -->
+                    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100"></div>
+                    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+                            <div class="toast-header justify-content-center">
+                                <strong>Are you sure to delete ?</strong>
+                            </div>
+                            <div class="toast-body">
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button type="button" class="btn btn-primary btn-sm" id="toast-yes" onclick="location.href='index.html'">Yes</button>
+                                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+    // document.getElementById("deleteBtn").addEventListener("click", function() {
+    //     document.getElementById("alert").style.display = "block";
+    // });
+
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('liveToast')
+    if (toastTrigger) {
+        toastTrigger.addEventListener('click', () => {
+            const toast = new bootstrap.Toast(toastLiveExample)
+
+            toast.show()
+        });
+    }
+
+</script>
+
+</body>
+</html>
